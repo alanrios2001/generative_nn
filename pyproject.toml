@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "improve-img"
+version = "0.1.0"
+description = ""
+authors = ["Alan Rios <alanrios2001@gmail.com>"]
+readme = "README.md"
+packages = [{include = "improve_img"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+torch = { url = "https://download.pytorch.org/whl/cu117/torch-1.13.0%2Bcu117-cp39-cp39-win_amd64.whl" }
+torchvision = { url = "https://download.pytorch.org/whl/cu117/torchvision-0.14.0%2Bcu117-cp39-cp39-win_amd64.whl" }
+numpy = "^1.21.2"
+Pillow = "^8.3.2"
+matplotlib = "^3.4.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
