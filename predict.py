@@ -1,7 +1,7 @@
 import torch
 from functool import get_noise, show_tensor_images, load_checkpoint
 from models import Generator, Critic
-import pickle
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 

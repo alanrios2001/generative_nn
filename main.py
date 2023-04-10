@@ -8,7 +8,7 @@ from functool import load_checkpoint
 device = "cuda" if torch.cuda.is_available() else "cpu"
 LEARNING_RATE = 1e-6
 BATCH_SIZE = 64
-zdim = 256
+zdim = 128
 display_step = 1000
 
 cur_step = 0
@@ -32,7 +32,7 @@ gen_opt = torch.optim.Adam(gen.parameters(), lr=LEARNING_RATE, betas=(0.5, 0.999
 crit = Critic().to(device)
 crit_opt = torch.optim.Adam(crit.parameters(), lr=LEARNING_RATE, betas=(0.5, 0.999))
 
-#gen, gen_opt, crit, crit_opt = load_checkpoint("model1",gen, gen_opt, crit, crit_opt)
+gen, gen_opt, crit, crit_opt = load_checkpoint("model1",gen, gen_opt, crit, crit_opt)
 
 print("Starting Training Loop...")
 train(epochs=200,

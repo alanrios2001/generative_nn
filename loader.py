@@ -4,9 +4,11 @@ import torchvision
 import PIL
 import os
 import numpy as np
+from torchvision import datasets, transforms
+from torchvision.transforms import ToTensor
 
-class ImgDataset(Dataset):
-    def __init__(self, path, size):
+class CelebADataset(Dataset):
+    def __init__(self, path, size = 256):
         self.sizes = [size, size]
         items, labels = [], []
 
@@ -31,11 +33,16 @@ class ImgDataset(Dataset):
         data = torch.from_numpy(data).div(255)
         return data, self.labels[idx]
 
+def load_mnist(dataset):
+    transformer = transforms.Compose([
+        transforms.ToTensor()
+    ])
 
 
 def load_dataset(path, BATCH_SIZE):
     # Dataset
-    dataset = ImgDataset(path, size=256)
+    dataset = CelebADataset(path, size=128)
+    #dataset = datasets.MNIST(root="data", train=True, download=True, transform=transforms.ToTensor())
     # dataloader
     dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True)
     return dataloader

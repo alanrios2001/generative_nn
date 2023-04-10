@@ -72,7 +72,7 @@ def train(epochs,
                 mean_gen_loss = sum(gen_losses[-display_step:]) / display_step
                 mean_crit_loss = sum(crit_losses[-display_step:]) / display_step
                 print(f"Epoch: {epoch}, step: {cur_step}/{len(dataloader)*epochs} Generator loss: {mean_gen_loss:.4f}, critic loss: {mean_crit_loss:.4f}")
-                save_checkpoint("model2", gen_model, gen_opt, crit_model, crit_opt, epoch)
+                save_checkpoint("model1", gen_model, gen_opt, crit_model, crit_opt, epoch)
 
             if cur_step % display_step == 0 and cur_step > 0:
                 show_tensor_images(fake)

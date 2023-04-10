@@ -2,12 +2,12 @@ from torch import nn
 
 #generator model
 class Generator(nn.Module):
-    def __init__(self, zdim=256, d_dim=64):
+    def __init__(self, zdim=64, d_dim=16):
         super(Generator, self).__init__()
         self.zdim = zdim
+
         self.gen = nn.Sequential(
-            self.make_gen_block(zdim, d_dim*64, 4, 1, 0),
-            self.make_gen_block(d_dim*64, d_dim*32, 4, 2, 1),
+            self.make_gen_block(zdim, d_dim*32, 4, 1, 0),
             self.make_gen_block(d_dim*32, d_dim*16, 4, 2, 1),
             self.make_gen_block(d_dim*16, d_dim*8, 4, 2, 1),
             self.make_gen_block(d_dim*8, d_dim*4, 4, 2, 1),
