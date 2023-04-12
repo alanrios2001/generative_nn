@@ -77,7 +77,7 @@ def train(epochs,
             if cur_step % display_step == 0 and cur_step > 0:
                 show_tensor_images(fake)
                 show_tensor_images(real)
-                step_bins = 5
+                step_bins = 20
                 num_examples = (len(gen_losses) // step_bins) * step_bins
                 plt.plot(
                     range(num_examples // step_bins),
@@ -89,8 +89,8 @@ def train(epochs,
                     torch.Tensor(crit_losses[:num_examples]).view(-1, step_bins).mean(1),
                     label="Critic Loss",
                 )
-                plt.xlabel("loss")
-                plt.ylabel("batches")
+                plt.ylabel("loss")
+                plt.xlabel("batches")
                 plt.legend()
                 plt.grid(None)
                 plt.show()

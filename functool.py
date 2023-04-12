@@ -9,7 +9,7 @@ def show_tensor_images(image_tensor, num_images=25, name=""):
     image_unflat = image_tensor.detach().cpu()
     image_grid = make_grid(image_unflat[:num_images], nrow=5).permute(1, 2, 0)
     plt.imshow(image_grid)
-    plt.grid(None)
+    #plt.grid(None)
     plt.show()
 
 #gen noise

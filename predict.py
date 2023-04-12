@@ -12,6 +12,6 @@ crit = Critic().to(device)
 crit_opt = torch.optim.Adam(crit.parameters(), lr=0, betas=(0.5, 0.999))
 gen, gen_opt, crit, crit_opt = load_checkpoint("model1",gen, gen_opt, crit, crit_opt)
 
-noise = get_noise(1, zdim, device=device)
+noise = get_noise(25, zdim, device=device)
 fake = gen(noise)
 show_tensor_images(fake)

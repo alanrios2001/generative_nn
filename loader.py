@@ -33,16 +33,10 @@ class CelebADataset(Dataset):
         data = torch.from_numpy(data).div(255)
         return data, self.labels[idx]
 
-def load_mnist(dataset):
-    transformer = transforms.Compose([
-        transforms.ToTensor()
-    ])
-
-
 def load_dataset(path, BATCH_SIZE):
     # Dataset
     dataset = CelebADataset(path, size=128)
-    #dataset = datasets.MNIST(root="data", train=True, download=True, transform=transforms.ToTensor())
+
     # dataloader
     dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True)
     return dataloader
